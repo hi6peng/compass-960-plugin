@@ -50,6 +50,22 @@
     .suffix_#{!n}
       +grid-suffix(!n, !cols)
 
+=grid-push(!n, !cols = !ninesixty_columns)
+  :left= (!ninesixty_grid_width / !cols) * !n
+
+=grid-pushs(!cols = !ninesixty_columns)
+  @for !n from 1 through !cols - 1
+    .push_#{!n}
+      +grid-push(!n, !cols)
+
+=grid-pull(!n, !cols = !ninesixty_columns)
+  :left= -(!ninesixty_grid_width / !cols) * !n
+
+=grid-pulls(!cols = !ninesixty_columns)
+  @for !n from 1 through !cols - 1
+    .pull_#{!n}
+      +grid-pull(!n, !cols)
+
 =grid-children
   .alpha
     +alpha
