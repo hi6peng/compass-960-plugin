@@ -4,31 +4,85 @@
   
   Licensed under GPL and MIT.
 
-@import compass/utilities/general/reset.sass
+/*  Layout
+/*  %body
+/*    #wrap
+/*      #header
+/*      #main.clearfix
+/*        .g12
+/*        .g16
+/*    #footer
+
+/* @import compass/reset.sass
+/* +global-reset
+@import compass/utilities/general/clearfix.sass
+
 @import 960/grid.sass
+@import 960/text.sass
++text
 
-+global-reset
+@import 960/debug.sass
+@import 960/sticky_footer.sass
 
-// The following generates the default grids provided by the css version of 960.gs
-.container_12
-  +grid-system(12)
+!background_color = #123
+!text_color = #27261f
+!footer_height = 3em
 
-.container_16
-  +grid-system(16)
+body
+  :background-color= !background_color
+  :color= !text_color
 
-// But most compass users prefer to construct semantic layouts like so (two column layout with header and footer):
-
-!ninesixty_columns = 24
-.two-column
+#header, #footer, .g12, .g16
   +grid-container
-  #header,
-  #footer,
-  #sidebar,
-  #main-content
-    +grid-unit-base
-  #header, #footer
-    +grid-width(24)
-  #sidebar
-    +grid-width(8)
-  #main-content
-    +grid-width(16)
+  +clearfix
+
+.g12
+  +grids
+  +grid-prefixes
+  +grid-suffixes
+  +grid-pushs
+  +grid-pulls
+  +grid-children
+  :margin-bottom 20px
+
+.g16
+  +grids(16)
+  +grid-prefixes(16)
+  +grid-suffixes(16)
+  +grid-pushs(16)
+  +grid-pulls(16)
+  +grid-children
+
+#header
+  h1
+    +grid(12,12)
+    :text-align center
+    :padding-top 20px
+  a
+    :color white
+    :text-decoration none
+    &:hover
+      :color white
+      :text-decoration none
+
+#main
+  h2
+    :padding 20px 0px 0px
+    :text-align center
+  p
+    :border 1px solid #666
+    :overflow hidden
+    :padding 10px 0
+    :text-align center
+    :margin-bottom 20px
+
+#footer
+  p
+    +grid(12,12)
+    :color white
+
++sticky-footer(!footer_height, "#wrap", "#main", "#footer")
+
+/* Debug
++showgrid_12(".g12")
++showgrid_16(".g16")
