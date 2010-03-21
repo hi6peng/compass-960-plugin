@@ -1,0 +1,14 @@
+!col_12 ||= "12_col.gif"
+!col_16 ||= "16_col.gif"
+
+=showgrid_12(!selector, !grid_pic = !col_12)
+  #{!selector}
+    :background
+      :image= image_url(!grid_pic)
+      :repeat repeat-y
+
+=showgrid_16(!selector, !grid_pic = !col_16)
+  #{!selector}
+    :background
+      :image= image_url(!grid_pic)
+      :repeat repeat-y

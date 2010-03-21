@@ -13,15 +13,14 @@ This plugin adds the 960 Grid System framework to [Compass](http://compass-style
 Install
 =======
 
-    sudo gem install chriseppstein-compass
-    sudo gem install chriseppstein-compass-960-plugin
+    sudo gem install itsucks-compass-960-plugin
 
 Create a 960-based Compass Project
 ==================================
 
     compass -r ninesixty -f 960 <project name>
 
-Then edit your `grid.sass` and `text.sass` files accordingly. A reset is added into grid.sass automatically.
+Then edit your `grid.sass`, `text.sass` adn `debug.sass` files accordingly. A reset is added into grid.sass automatically.
 
 Customizing your Grid System
 ============================
@@ -40,7 +39,8 @@ Making Semantic Grids
 * Use the `+grid-container` mixin to declare your container element.
 * Use the `+grid` mixin to declare a grid element.
 * Use the `+alpha` and `+omega` mixins to declare the first and last grid elements for a row.
-* User the `+grid-prefix` and `+grid-suffix` mixins to add grid columns before or after a grid element.
+* Use the `+grid-prefix` and `+grid-suffix` mixins to add grid columns before or after a grid element.
+
 
 Example:
 
@@ -54,3 +54,8 @@ Example:
         +grid(10, 16)
         +omega
 
+Debug Grids
+===========
+
+    +showgrid_12(!selector = ".wrap_12")
+    +showgrid_16(!selector = ".wrap_16")
