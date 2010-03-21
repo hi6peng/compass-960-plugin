@@ -21,25 +21,25 @@ Then edit your `grid.sass` files accordingly. A reset is added into grid.sass au
 
 Customizing your Grid System
 ============================
-* screen.sass Layout
+* screen.sass
 
-    %body
-      #wrap
-        #header
-        #main.clearfix
-          .g12
-            .content
-            .sidebar
-      #footer
+        %body
+          #wrap
+            #header
+            #main.clearfix
+             .g12
+               .content
+               .sidebar
+          #footer
 
-* grid.sass Layout
+* grid.sass
 
-    %body
-      #wrap
-        #header
-          #main.clearfix
-            .g12
-            .g16
-      #footer
+        %body
+	      #wrap
+	        #header
+	          #main.clearfix
+                .g12
+                .g16
+            #footer
 
 [chriseppstein/compass-960-plugin]: http://github.com/chriseppstein/compass-960-plugin
