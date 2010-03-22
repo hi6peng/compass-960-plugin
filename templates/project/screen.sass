@@ -4,15 +4,16 @@
   
   Licensed under GPL and MIT.
 
-/*  Layout
-/*  %body
-/*    #wrap
-/*      #header
-/*      #main.clearfix
-/*        .g12
-/*          .content
-/*          .sidebar
-/*    #footer
+/*
+  Layout
+    %body
+      #wrap
+        #header
+        #main.clearfix
+          .g12
+            .content
+            .sidebar
+      #footer
 
 /* @import compass/reset.sass
 /* +global-reset
@@ -25,8 +26,8 @@
 @import 960/debug.sass
 @import 960/sticky_footer.sass
 
-!background_color = white
-!text_color = #666
+!background_color = #F1F1F1
+!text_color = black
 !header_height = 80px
 !footer_height = 3em
 
@@ -45,20 +46,25 @@ body
   +grid-pushs
   +grid-pulls
   +grid-children
+  :-moz-border-radius 10px
+  :-webkit-border-radius 10px
+  :background-color white
+  :padding-top 1em
+  :border 3px solid #CCC
 
 #header
   :height= !header_height
-  :border-bottom 2px solid #F90
   h1
     +grid(6,12)
-    :color #F90
     :letter-spacing -1px
     :margin 30px 0px 0px 15px
     :padding 0
     :font-weight normal
+    :color #383
     span
+      :color black
       :font-size 16px
-      :color #FFC875
+      :color #CCC
   ul
     +grid(6,12)
     :list-style-type none
@@ -70,29 +76,25 @@ body
       :display inline
       :margin 0 0 0 10px
       a
-        :text-decoration none
-        :color #999
-        :font-weight bold
         &.active
           :text-decoration none
-          :color #F90
           :font-weight bold
         &:hover
           :text-decoration none
-          :color #333
 
 #main
+  a
+    &:hover
+      :text-decoration none
   p
     :margin 0 15px 15px 15px
   h1
-    :color #F90
     :font-size 140%
   h2, h3
     :margin 0 0 15px 0
     :padding 5px 15px
     :font-size 120%
     :font-weight normal
-    :color #F90
     :border-bottom 1px solid #E5E5E5
   .content
     +grid(9,12)
@@ -111,13 +113,8 @@ body
 #footer
   .inner
     +grid(12,12)
-    :border-top 2px solid #F90
-    :color #999
     a
-      :color #999
-      :text-decoration none
       &:hover
-        :color #F90
         :text-decoration none
     .left
       :float left
@@ -128,4 +125,4 @@ body
 +sticky-footer(!footer_height, "#wrap", "#main", "#footer")
 
 /* Debug
-/* +showgrid(".g12")
+/* +showgrid_12(".g12")
