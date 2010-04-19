@@ -6,7 +6,15 @@ h2. Install
 
 <pre>
 <code>
-	sudo gem install itsucks-compass-960-plugin
+	gem install itsucks-compass-960-plugin
+</code>
+</pre>
+
+or
+
+<pre>
+<code>
+	rake install
 </code>
 </pre>
 

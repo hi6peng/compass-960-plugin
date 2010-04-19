@@ -1,5 +1,5 @@
 Manifest
-README.mkd
+README.textile
 Rakefile
 VERSION
 lib/ninesixty.rb
