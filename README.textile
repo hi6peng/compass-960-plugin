@@ -1,0 +1,52 @@
+h1. 960 Grid System - Compass Plugin
+
+Fork from "chriseppstein/compass-960-plugin":http://github.com/chriseppstein/compass-960-plugin
+
+h2. Install
+
+<pre>
+<code>
+	sudo gem install itsucks-compass-960-plugin
+</code>
+</pre>
+
+h2. Create a 960-based Compass Project
+
+<pre>
+<code>
+    compass -r ninesixty -f 960 <project name>
+</code>
+</pre>
+
+Then edit your `grid.sass` files accordingly.
+
+h2. Customizing your Grid System
+
+* screen.sass
+
+<pre>
+<code>
+    %body
+      #wrap
+        #header
+        #main.clearfix
+          .g12
+            .content
+            .sidebar
+        #footer
+</code>
+</pre>
+
+* grid.sass
+
+<pre>
+<code>
+    %body
+      #wrap
+        #header
+        #main.clearfix
+          .g12
+          .g16
+        #footer
+</code>
+</pre>
