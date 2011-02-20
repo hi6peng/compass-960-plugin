@@ -50,6 +50,19 @@ $ninesixty_columns: 12 !default
     .suffix_#{$n}
       +grid-suffix($n, $cols)
 
+=grid-move-base
+  position: relative
+
+=grid-movements($cols: $ninesixty-columns)
+  #{enumerate(".push", 1, $cols, "_")},
+  #{enumerate(".pull", 1, $cols, "_")}
+    +grid-move-base
+  @for $n from 1 through $cols
+    .push_#{$n}
+      +grid-push($n, $cols)
+    .pull_#{$n}
+      +grid-pull($n, $cols)
+
 =grid-push($n, $cols: $ninesixty_columns)
   left: $ninesixty_grid_width / $cols * $n
 
@@ -78,3 +91,4 @@ $ninesixty_columns: 12 !default
   +grid-prefixes($cols)
   +grid-suffixes($cols)
   +grid-children
+  +grid-movements($cols)
