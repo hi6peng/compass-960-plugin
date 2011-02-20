@@ -1,19 +1,17 @@
-/*
-  960 Grid System ~ Core CSS.
-  Learn more ~ http://960.gs/
-  
-  Licensed under GPL and MIT.
+/* 960 Grid System ~ Core CSS.
+ * Learn more ~ http://960.gs/
+ *
+ * Licensed under GPL and MIT.
 
-/*
-  Layout
-    %body
-      #wrap
-        #header
-        #main.clearfix
-          .g12
-            .content
-            .sidebar
-      #footer
+/* Layout
+ *   %body
+ *     #wrap
+ *       #header
+ *       #main.clearfix
+ *         .g12
+ *           .content
+ *           .sidebar
+ *     #footer
 
 /* @import compass/reset.sass
 /* +global-reset
@@ -21,19 +19,20 @@
 
 @import 960/grid.sass
 @import 960/text.sass
+
 +text
 
 @import 960/debug.sass
 @import 960/sticky_footer.sass
 
-!background_color = #F1F1F1
-!text_color = black
-!header_height = 80px
-!footer_height = 3em
+$background_color: #f1f1f1
+$text_color: black
+$header_height: 80px
+$footer_height: 3em
 
 body
-  :background-color= !background_color
-  :color= !text_color
+  background-color: $background_color
+  color: $text_color
 
 #header, #footer, .g12
   +grid-container
@@ -46,83 +45,83 @@ body
   +grid-pushs
   +grid-pulls
   +grid-children
-  :-moz-border-radius 10px
-  :-webkit-border-radius 10px
-  :background-color white
-  :padding-top 1em
-  :border 3px solid #CCC
+  -moz-border-radius: 10px
+  -webkit-border-radius: 10px
+  background-color: white
+  padding-top: 1em
+  border: 3px solid #cccccc
 
 #header
-  :height= !header_height
+  height: $header_height
   h1
-    +grid(6,12)
-    :letter-spacing -1px
-    :margin 30px 0px 0px 15px
-    :padding 0
-    :font-weight normal
-    :color #383
+    +grid(6, 12)
+    letter-spacing: -1px
+    margin: 30px 0px 0px 15px
+    padding: 0
+    font-weight: normal
+    color: #338833
     span
-      :color black
-      :font-size 16px
-      :color #CCC
+      color: black
+      font-size: 16px
+      color: #cccccc
   ul
-    +grid(6,12)
-    :list-style-type none
-    :text-align right
-    :color #CCC
-    :padding 0
-    :margin 40px 15px 0 0
+    +grid(6, 12)
+    list-style-type: none
+    text-align: right
+    color: #cccccc
+    padding: 0
+    margin: 40px 15px 0 0
     li
-      :display inline
-      :margin 0 0 0 10px
+      display: inline
+      margin: 0 0 0 10px
       a
         &.active
-          :text-decoration none
-          :font-weight bold
+          text-decoration: none
+          font-weight: bold
         &:hover
-          :text-decoration none
+          text-decoration: none
 
 #main
   a
     &:hover
-      :text-decoration none
+      text-decoration: none
   p
-    :margin 0 15px 15px 15px
+    margin: 0 15px 15px 15px
   h1
-    :font-size 140%
+    font-size: 140%
   h2, h3
-    :margin 0 0 15px 0
-    :padding 5px 15px
-    :font-size 120%
-    :font-weight normal
-    :border-bottom 1px solid #E5E5E5
+    margin: 0 0 15px 0
+    padding: 5px 15px
+    font-size: 120%
+    font-weight: normal
+    border-bottom: 1px solid #e5e5e5
   .content
-    +grid(9,12)
+    +grid(9, 12)
     img
-      :border 1px solid #CDCDCD
-      :float left
-      :margin 0px 15px 5px
-      :padding 5px
+      border: 1px solid #cdcdcd
+      float: left
+      margin: 0px 15px 5px
+      padding: 5px
   .sidebar
-    +grid(3,12)
+    +grid(3, 12)
     p.title
-      :margin 0px 20px
-      :font-weight bold
-      :font-style oblique
+      margin: 0px 20px
+      font-weight: bold
+      font-style: oblique
 
 #footer
   .inner
-    +grid(12,12)
+    +grid(12, 12)
     a
       &:hover
-        :text-decoration none
+        text-decoration: none
     .left
-      :float left
+      float: left
     .right
-      :float right
-      :text-align right
+      float: right
+      text-align: right
 
-+sticky-footer(!footer_height, "#wrap", "#main", "#footer")
++sticky-footer($footer_height, unquote("#wrap"), unquote("#main"), unquote("#footer"))
 
 /* Debug
 /* +showgrid_12(".g12")

@@ -1,70 +1,70 @@
-!ninesixty_gutter_width ||= 20px
-!ninesixty_grid_width ||= 960px
-!ninesixty_columns ||= 12
+$ninesixty_gutter_width: 20px !default
+$ninesixty_grid_width: 960px !default
+$ninesixty_columns: 12 !default
 
 =grid-container
-  :margin-left auto
-  :margin-right auto
-  :width= !ninesixty_grid_width
+  margin-left: auto
+  margin-right: auto
+  width: $ninesixty_grid_width
 
-=grid-width(!n, !cols = !ninesixty_columns, !gutter_width = !ninesixty_gutter_width)
-  :width= (!ninesixty_grid_width / !cols) * !n - !gutter_width
+=grid-width($n, $cols: $ninesixty_columns, $gutter_width: $ninesixty_gutter_width)
+  width: $ninesixty_grid_width / $cols * $n - $gutter_width
 
-=grid-unit-base(!gutter_width = !ninesixty_gutter_width)
-  :display inline
-  :float left
-  :margin
-    :left= !gutter_width / 2
-    :right= !gutter_width / 2
+=grid-unit-base($gutter_width: $ninesixty_gutter_width)
+  display: inline
+  float: left
+  margin:
+    left: $gutter_width / 2
+    right: $gutter_width / 2
 
-=grid(!n, !cols = !ninesixty_columns, !gutter_width = !ninesixty_gutter_width)
-  +grid-unit-base(!gutter_width)
-  +grid-width(!n, !cols, !gutter_width)
+=grid($n, $cols: $ninesixty_columns, $gutter_width: $ninesixty_gutter_width)
+  +grid-unit-base($gutter_width)
+  +grid-width($n, $cols, $gutter_width)
 
 =alpha
-  :margin-left 0
+  margin-left: 0
 
 =omega
-  :margin-right 0
+  margin-right: 0
 
-=grids(!cols = !ninesixty_columns, !gutter_width = !ninesixty_gutter_width)
-  #{enumerate(".grid",1,!cols,"_")}
+=grids($cols: $ninesixty_columns, $gutter_width: $ninesixty_gutter_width)
+  #{enumerate(".grid", 1, $cols, "_")}
     +grid-unit-base
-  @for !n from 1 through !cols
-    .grid_#{!n}
-      +grid-width(!n, !cols, !gutter_width)
+  @for $n from 1 through $cols
+    .grid_#{$n}
+      +grid-width($n, $cols, $gutter_width)
 
-=grid-prefix(!n, !cols = !ninesixty_columns)
-  :padding-left= (!ninesixty_grid_width / !cols) * !n
+=grid-prefix($n, $cols: $ninesixty_columns)
+  padding-left: $ninesixty_grid_width / $cols * $n
 
-=grid-prefixes(!cols = !ninesixty_columns)
-  @for !n from 1 through !cols - 1
-    .prefix_#{!n}
-      +grid-prefix(!n, !cols)
+=grid-prefixes($cols: $ninesixty_columns)
+  @for $n from 1 through $cols - 1
+    .prefix_#{$n}
+      +grid-prefix($n, $cols)
 
-=grid-suffix(!n, !cols = !ninesixty_columns)
-  :padding-right= (!ninesixty_grid_width / !cols) * !n
+=grid-suffix($n, $cols: $ninesixty_columns)
+  padding-right: $ninesixty_grid_width / $cols * $n
 
-=grid-suffixes(!cols = !ninesixty_columns)
-  @for !n from 1 through !cols - 1
-    .suffix_#{!n}
-      +grid-suffix(!n, !cols)
+=grid-suffixes($cols: $ninesixty_columns)
+  @for $n from 1 through $cols - 1
+    .suffix_#{$n}
+      +grid-suffix($n, $cols)
 
-=grid-push(!n, !cols = !ninesixty_columns)
-  :left= (!ninesixty_grid_width / !cols) * !n
+=grid-push($n, $cols: $ninesixty_columns)
+  left: $ninesixty_grid_width / $cols * $n
 
-=grid-pushs(!cols = !ninesixty_columns)
-  @for !n from 1 through !cols - 1
-    .push_#{!n}
-      +grid-push(!n, !cols)
+=grid-pushs($cols: $ninesixty_columns)
+  @for $n from 1 through $cols - 1
+    .push_#{$n}
+      +grid-push($n, $cols)
 
-=grid-pull(!n, !cols = !ninesixty_columns)
-  :left= -(!ninesixty_grid_width / !cols) * !n
+=grid-pull($n, $cols: $ninesixty_columns)
+  left: -($ninesixty_grid_width / $cols) * $n
 
-=grid-pulls(!cols = !ninesixty_columns)
-  @for !n from 1 through !cols - 1
-    .pull_#{!n}
-      +grid-pull(!n, !cols)
+=grid-pulls($cols: $ninesixty_columns)
+  @for $n from 1 through $cols - 1
+    .pull_#{$n}
+      +grid-pull($n, $cols)
 
 =grid-children
   .alpha
@@ -72,9 +72,9 @@
   .omega
     +omega
 
-=grid-system(!cols = !ninesixty_columns)
+=grid-system($cols: $ninesixty_columns)
   +grid-container
-  +grids(!cols)
-  +grid-prefixes(!cols)
-  +grid-suffixes(!cols)
+  +grids($cols)
+  +grid-prefixes($cols)
+  +grid-suffixes($cols)
   +grid-children

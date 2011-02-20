@@ -1,8 +1,7 @@
-/*
-  960 Grid System ~ Core CSS.
-  Learn more ~ http://960.gs/
-  
-  Licensed under GPL and MIT.
+/* 960 Grid System ~ Core CSS.
+ * Learn more ~ http://960.gs/
+ *
+ * Licensed under GPL and MIT.
 
 /*  Layout
 /*  %body
@@ -19,18 +18,19 @@
 
 @import 960/grid.sass
 @import 960/text.sass
+
 +text
 
 @import 960/debug.sass
 @import 960/sticky_footer.sass
 
-!background_color = #123
-!text_color = #27261f
-!footer_height = 3em
+$background_color: #112233
+$text_color: #27261f
+$footer_height: 3em
 
 body
-  :background-color= !background_color
-  :color= !text_color
+  background-color: $background_color
+  color: $text_color
 
 #header, #footer, .g12, .g16
   +grid-container
@@ -43,7 +43,7 @@ body
   +grid-pushs
   +grid-pulls
   +grid-children
-  :margin-bottom 20px
+  margin-bottom: 20px
 
 .g16
   +grids(16)
@@ -55,34 +55,35 @@ body
 
 #header
   h1
-    +grid(12,12)
-    :text-align center
-    :padding-top 20px
+    +grid(12, 12)
+    text-align: center
+    padding-top: 20px
   a
-    :color white
-    :text-decoration none
+    color: white
+    text-decoration: none
     &:hover
-      :color white
-      :text-decoration none
+      color: white
+      text-decoration: none
 
 #main
   h2
-    :padding 20px 0px 0px
-    :text-align center
+    padding: 20px 0px 0px
+    text-align: center
   p
-    :border 1px solid #666
-    :overflow hidden
-    :padding 10px 0
-    :text-align center
-    :margin-bottom 20px
+    border: 1px solid #666666
+    overflow: hidden
+    padding: 10px 0
+    text-align: center
+    margin-bottom: 20px
 
 #footer
   p
-    +grid(12,12)
-    :color white
+    +grid(12, 12)
+    color: white
 
-+sticky-footer(!footer_height, "#wrap", "#main", "#footer")
++sticky-footer($footer_height, unquote("#wrap"), unquote("#main"), unquote("#footer"))
 
 /* Debug
-+showgrid_12(".g12")
-+showgrid_16(".g16")
++showgrid_12(unquote(".g12"))
+
++showgrid_16(unquote(".g16"))
