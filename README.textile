@@ -22,7 +22,7 @@ h2. Create a 960-based Compass Project
 
 <pre>
 <code>
-    compass -r ninesixty -f 960 <project name>
+	compass create -r ninesixty <project name> --using 960
 </code>
 </pre>
 
