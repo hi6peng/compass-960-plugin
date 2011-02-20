@@ -1,1 +1,2 @@
-require File.join(File.dirname(__FILE__), 'ninesixty', 'compass_plugin')
+require 'compass'
+Compass::Frameworks.register("960", :path => "#{File.dirname(__FILE__)}/..")
